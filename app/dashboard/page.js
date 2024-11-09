@@ -1,16 +1,23 @@
 import Main from '@/components/Main';
 import Login from '@/components/Login';
+import Dashboard from '@/components/Dashboard';
 
 export const metadata = {
     title: "Moodl ⋅ Dashboard",
 }
 
 export default function DashboardPage() {
-    const isAuthenticated = false
+    const isAuthenticated = true
 
-    const children = (
+    let children = (
         <Login />
     )
+
+    if (isAuthenticated) {
+        children = (
+            <Dashboard />
+        )
+    }
     
     return (
         <Main>

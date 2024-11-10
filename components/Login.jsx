@@ -12,8 +12,8 @@ export default function Login() {
         Login In / Sign Up
       </h3>
       <p>You&#39;re one step away!</p>
-      <input className='w-full max-w-[400px] mx-auto px-4 py-2 sm:py-3 border border-solid border-indigo-400' placeholder='Email'/>
-      <input className='w-full max-w-[400px] mx-auto px-4 py-2 sm:py-3 border border-solid border-indigo-400' placeholder='Password'/>
+      <input className='w-full max-w-[400px] mx-auto px-3 duration-200 hover:border-indigo-600 focus:border-indigo-600 py-2 sm:py-3 border border-solid border-indigo-400 rounded-full outline-none' placeholder='Email'/>
+      <input className='w-full max-w-[400px] mx-auto px-3 duration-200 hover:border-indigo-600 focus:border-indigo-600 py-2 sm:py-3 border border-solid border-indigo-400 rounded-full outline-none' placeholder='Password' type='password'/>
       <div className='max-w-[400px] w-full mx-auto'>
         <Button text='Submit' full/>
       </div>

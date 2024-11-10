@@ -2,7 +2,7 @@ import React from 'react'
 import Main from './Main'
 import { Fugaz_One } from 'next/font/google'
 import Button from './Button'
-const fugaz = Fugaz_One({ subsets: ['latin'], weight: ['400'] })
+const { fugaz } = Fugaz_One({ subsets: ['latin'], weight: ['400'] })
 
 
 export default function Login() {
@@ -17,6 +17,9 @@ export default function Login() {
       <div className='max-w-[400px] w-full mx-auto'>
         <Button text='Submit' full/>
       </div>
+      <p>
+        Don&#39;t have an account? <a href='/signup' className='text-indigo-600'>Sign Up</a>
+      </p>
     </div>
   )
 }

@@ -13,12 +13,10 @@ export default function Dashboard() {
 
   const moods = {
     '&*@#$': '😡',
-    '&*@#$': '😡',
-    '&*@#$': '😡',
-    '&*@#$': '😡',
-    '&*@#$': '😡',
-
-
+    'Sad': '😢',
+    'Existing': '😐',
+    'Good': '😊',
+    'Awesome': '😎',
   }
 
   return (
@@ -37,7 +35,14 @@ export default function Dashboard() {
           How do you <span className='textGradient'>Feel</span> today?
         </h4>
         <div className='grid grid-cols-2 md:grid-cols-5 gap-4'>
-
+          {Object.keys(moods).map((mood, moodIndex) => {
+            return (
+              <button className={' ' + (moodIndex === 4 ? ' col-span-2 md:col-span-1' : ' ' )} key={moodIndex}>
+                <p>{mood}</p>
+                <p>{moods[mood]}</p>
+              </button>
+            )
+          })}
         </div>
     </div>
   )

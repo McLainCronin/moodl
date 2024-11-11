@@ -3,6 +3,9 @@ import React from 'react'
 import Main from './Main'
 import Button from './Button'
 import Calendar from "./Calendar";
+import { demoData } from "@/utils";
+
+
 
 
 const fugaz = Fugaz_One({ subsets: ["latin"], weight: ['400'] });
@@ -20,7 +23,7 @@ export default function Hero() {
         <Button text="Sign Up"/>
         <Button text="Login" dark/>
       </div>
-      <Calendar />
+      <Calendar demo />
     </div>
   )
 }

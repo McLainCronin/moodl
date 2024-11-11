@@ -9,13 +9,15 @@ const dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday
 
 
 export default function Calendar(props) {
-    const { demo, data, handleSetMood } = props
+    const { demo, completeData, handleSetMood } = props
 
     const now = new Date()
     const currMonth = now.getMonth()
     const [selectedMonth, setSelectedMonth] = useState(Object.keys(months)[currMonth])
     const [selectedYear, setSelectedYear] = useState(now.getFullYear())
-    console.log('Selected Month: ', selectedMonth)
+
+    const numericMonth = Object.keys(months).indexOf(selectedMonth)
+    const data = completeData?.[selectedYear]?.[numericMonth] || {}
     
     function handleIncrementMonth(val) {
         
@@ -49,7 +51,7 @@ export default function Calendar(props) {
                                 )
                             }
 
-                            let color = demo ? gradients.indigo[baseRating[dayIndex]] : dayIndex in demoData ? gradients.indigo[demoData[dayIndex]] : 'white'
+                            let color = demo ? gradients.indigo[baseRating[dayIndex]] : dayIndex in data ? gradients.indigo[data[dayIndex]] : 'white'
 
                             return (
                                 <div style={{background: color}} className={'text-xs sm:text-sm border border-solid p-2 flex items-center gap-2 justify-between rounded-lg ' + (isToday ? ' border-indigo-400 ' : ' border-indigo-100 ') + (color === 'white' ? ' text-indigo-400' : ' text-white')} key={dayOfWeekIndex}>

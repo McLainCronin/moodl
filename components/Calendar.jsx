@@ -10,14 +10,40 @@ export default function Calendar() {
     const month = 'November'
     const monthNow = new Date(year, Object.keys(months).indexOf(month), 1)
     const firstDayOfMonth = monthNow.getDay()
-    const daysInMonth = new Date(year, Onject.keys(month).indexOf(month) + 1, 0)
+    const daysInMonth = new Date(year, Object.keys(month).indexOf(month) + 1, 0).getDate()
 
     const daysToDisplay = firstDayOfMonth + daysInMonth
-    const numRows = (Math.floor(daysToDisplay / 7)) + daysToDisplay % 7 ? 1 : 0
+    const numRows = (Math.floor(daysToDisplay / 7)) + (daysToDisplay % 7 ? 1 : 0)
 
     return (
-        <div>
+        <div className='flex flex-col overflow-hidden gap-1'>
+            {[...Array(numRows).keys()].map((row, rowIndex) => {
+                return (
+                    <div key={rowIndex} className='grid grid-cols-7 gap-1'>
+                        {dayList.map((dayOfWeek, dayOfWeekIndex) => {
+                            let dayIndex = (rowIndex * 7) + dayOfWeekIndex - (firstDayOfMonth - 1)
 
+                            let dayDisplay = dayIndex > daysInMonth ? false : (row === 0 && dayOfWeekIndex < firstDayOfMonth) ? false : true
+
+                            let isToday = dayIndex === now.getDate()
+
+                            if (!dayDisplay) {
+                                return (
+                                    <div key={dayOfWeekIndex} className='bg-white'>
+                                        
+                                    </div>
+                                )
+                            }
+
+                            return (
+                                <div key={dayOfWeekIndex}>
+                                    random text
+                                </div>
+                            )
+                        })}
+                    </div>
+                )
+            })}
         </div>
     )
 }

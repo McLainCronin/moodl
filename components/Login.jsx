@@ -3,14 +3,41 @@ import React, { useState } from 'react'
 import { Fugaz_One } from 'next/font/google'
 import Button from './Button'
 const fugaz = Fugaz_One({ subsets: ['latin'], weight: ['400'] })
+import { useAuth, signup, login } from '@/context/AuthContext'
 
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isRegister, setIsRegister] = useState(false)
+  const [authenticating, setAuthenticating] = useState(false)
+  const { signup, login } = useAuth()
+  //create an error state which informs the user of the specific error (password length, email format, etc)
 
   async function handleSubmit() {
+    if (!email || !password || password.length < 6) {
+      return
+    }
+
+    setAuthenticating(true)
+
+    try {
+      if (isRegister) {
+        // Register
+        console.log('Signing up a new user')
+        await signup(email, password)
+      } else {
+        // Login
+        console.log('Logging in an existing user')
+        await login(email, password)
+      }
+    } catch (err) {
+      console.log('Failed to authenticate: ', err.message)
+    } finally {
+      setAuthenticating(false)
+    }
+
+    
   }
 
   return (

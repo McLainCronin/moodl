@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import Main from './Main'
 import { Fugaz_One } from "next/font/google";
 import Calendar from './Calendar';
@@ -6,6 +7,28 @@ import Calendar from './Calendar';
 const fugaz = Fugaz_One({ subsets: ["latin"], weight: ['400'] });
 
 export default function Dashboard() {
+  const { currentUser, userDataObj, setUserDataObj } = useAuth()
+  const [data, setData] = useState({})
+
+  function countValues() {
+    
+  }
+
+  function handleSetMood(mood, day, month, year) {
+    const currData = { ...userDataObj }
+    if (!newData?.[year]) {
+      newData[year] = {}
+    }
+    if (!newData?.[year]?.[month]) {
+      newData[year][month] = {}
+    }
+
+    newData[year][month][day] = mood
+    //update the current state
+    //update global state
+    //update the firestore database
+  }
+
   const statuses = {
     num_days: 14,
     time_remaining: '13:14:26',
@@ -19,6 +42,13 @@ export default function Dashboard() {
     'Good': '😊',
     'Awesome': '😎',
   }
+
+  useEffect(() => {
+    if (!currentUser || !userDataObj) {
+      return
+    }
+    setData(userDataObj)
+  }, [currentUser, userDataObj])
 
   return (
     <div className='flex flex-col flex-1 gap-8 sm:gap-12 md:gap-16'>
@@ -45,7 +75,7 @@ export default function Dashboard() {
             )
           })}
         </div>
-        <Calendar />
+        <Calendar data={data} handleSetMood={handleSetMood}/>
     </div>
   )
 }

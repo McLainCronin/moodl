@@ -48,16 +48,16 @@ export default function Login() {
 
       <p>You&#39;re one step away!</p>
 
-      <input value={email} onChange={() => {
+      <input value={email} onChange={(e) => {
         setEmail(e.target.value)
       }} className='w-full max-w-[400px] mx-auto px-3 duration-200 hover:border-indigo-600 focus:border-indigo-600 py-2 sm:py-3 border border-solid border-indigo-400 rounded-full outline-none' placeholder='Email'/>
 
-      <input value={password} onChange={() => {
+      <input value={password} onChange={(e) => {
         setPassword(e.target.value)
       }} className='w-full max-w-[400px] mx-auto px-3 duration-200 hover:border-indigo-600 focus:border-indigo-600 py-2 sm:py-3 border border-solid border-indigo-400 rounded-full outline-none' placeholder='Password' type='password'/>
 
       <div className='max-w-[400px] w-full mx-auto'>
-        <Button text='Submit' full/>
+        <Button clickHandler={handleSubmit} text={authenticating ? 'Submitting' : 'Submit'} full/>
       </div>
 
       <p>

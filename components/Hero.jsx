@@ -4,6 +4,7 @@ import Main from './Main'
 import Button from './Button'
 import Calendar from "./Calendar";
 import { demoData } from "@/utils";
+import Link from "next/link";
 
 
 
@@ -20,8 +21,12 @@ export default function Hero() {
         Create your mood record and see how you <span className='font-semibold'>feel over time.</span>
       </p>
       <div className="grid grid-cols-2 gap-4 w-fit mx-auto">
-        <Button text="Sign Up"/>
-        <Button text="Login" dark/>
+        <Link href='/dashboard'>
+          <Button text="Sign Up"/>
+        </Link>
+        <Link href='/dashboard'>
+          <Button text="Login" dark/>
+        </Link>
       </div>
       <Calendar demo />
     </div>

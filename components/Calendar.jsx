@@ -44,11 +44,11 @@ export default function Calendar(props) {
 
     return (
         <div className='flex flex-col gap-2'>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-5 gap-4'>
                 <button onClick={() => {
                     handleIncrementMonth(-1)
                 }} className='ml-auto'><i className='fas fa-chevron-left text-indigo-400 text-lg sm:text-xl duration-200 hover:opacity-60'></i></button>
-                <p className={'text-center capitalized textGradient ' + fugaz.className}>
+                <p className={'text-center col-span-3 capitalized whitespace-nowrap textGradient ' + fugaz.className}>
                     {selectedMonth} {selectedYear}
                 </p>
                 <button onClick={() => {

@@ -21,9 +21,6 @@ export default function RootLayout({ children }) {
           Moodi
         </Link>
       </h1>
-      <div className="flex items-center justify-between">
-        PLACEHOLDER CTA || STATS
-      </div>
     </header>
   )
 

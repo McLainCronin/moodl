@@ -1,4 +1,4 @@
-import { Fugaz_One, Open_Sans } from "next/font/google";
+import { Flamenco, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { AuthProvider } from "@/context/AuthContext";
@@ -7,7 +7,7 @@ import Logout from "@/components/Logout";
 
 
 const opensans = Open_Sans({ subsets: ["latin"] });
-const fugaz = Fugaz_One({ subsets: ["latin"], weight: ['400'] });
+const fugaz = Flamenco({ subsets: ["latin"], weight: ['400'] });
 
 export const metadata = {
   title: "Moodi",
@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const header = (
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4">
-      <h1 className={'text-based sm:text-lg textGradient ' + fugaz.className}>
+      <h1 className={'text-lg sm:text-3xl textGradient ' + fugaz.className}>
         <Link href='/'>
           Moodi
         </Link>
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
 
   const footer = (
     <footer className="p-4 sm:p-8 grid place-items-center">
-      <p className={'text-indigo-500 ' + fugaz.className}>Created with 🫶 © 2024 Moodi</p>
+      <p className={'text-[#ef447d] ' + fugaz.className}>Moodi 🫶 2024</p>
     </footer>
   )
 
@@ -36,10 +36,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head/>
       <AuthProvider>
-        <body className={ 'w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-800 ' + opensans.className}>
-          {header}
-          {children}
-          {footer}
+        <body className={ ' w-full text-sm sm:text-base min-h-screen flex flex-col text-slate-800 ' + opensans.className}>
+          <div className="max-w-[1000px] mx-auto">
+            {header}
+            {children}
+            {footer}
+          </div>
         </body>
       </AuthProvider>
     </html>

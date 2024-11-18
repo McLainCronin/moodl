@@ -1,9 +1,9 @@
 'use client'
 import { gradients, baseRating, demoData } from '@/utils/index'
 import React, { useState } from 'react'
-import { Fugaz_One } from "next/font/google";
+import { Flamenco } from "next/font/google";
 
-const fugaz = Fugaz_One({ subsets: ["latin"], weight: ['400'] });
+const fugaz = Flamenco({ subsets: ["latin"], weight: ['400'] });
 
 
 const months = { 'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr', 'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug', 'September': 'Sept', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec' }
@@ -47,13 +47,13 @@ export default function Calendar(props) {
             <div className='grid grid-cols-5 gap-4'>
                 <button onClick={() => {
                     handleIncrementMonth(-1)
-                }} className='ml-auto'><i className='fas fa-chevron-left text-indigo-400 text-lg sm:text-xl duration-200 hover:opacity-60'></i></button>
+                }} className='ml-auto'><i className='fas fa-chevron-left text-[#ef447d] text-lg sm:text-xl duration-200 hover:opacity-60'></i></button>
                 <p className={'text-center col-span-3 capitalized whitespace-nowrap textGradient ' + fugaz.className}>
                     {selectedMonth} {selectedYear}
                 </p>
                 <button onClick={() => {
                     handleIncrementMonth(+1)
-                }} className='mr-auto'><i className='fas fa-chevron-right text-indigo-400 text-lg sm:text-xl duration-200 hover:opacity-60'></i></button>
+                }} className='mr-auto'><i className='fas fa-chevron-right text-[#ef447d] text-lg sm:text-xl duration-200 hover:opacity-60'></i></button>
             </div>
             <div className='flex flex-col overflow-hidden gap-1 py-4 sm:py-6 md:py-10'>
                 {[...Array(numRows).keys()].map((row, rowIndex) => {
@@ -74,10 +74,10 @@ export default function Calendar(props) {
                                     )
                                 }
                                 
-                                let color = demo ? gradients.indigo[baseRating[dayIndex]] : dayIndex in data ? gradients.indigo[data[dayIndex]] : 'white'
+                                let color = demo ? gradients.sherbert[baseRating[dayIndex]] : dayIndex in data ? gradients.sherbert[data[dayIndex]] : 'white'
                                 
                                 return (
-                                    <div style={{background: color}} className={'text-xs sm:text-sm border border-solid p-2 flex items-center gap-2 justify-between rounded-lg ' + (isToday ? ' border-indigo-400 ' : ' border-indigo-100 ') + (color === 'white' ? ' text-indigo-400' : ' text-white')} key={dayOfWeekIndex}>
+                                    <div style={{background: color}} className={'text-xs sm:text-sm border border-solid p-2 flex items-center gap-2 justify-between rounded-lg ' + (isToday ? ' border-[#ff74a2] ' : ' border-[#e5acbf] ') + (color === 'white' ? ' text-[#ff74a2]' : ' text-white')} key={dayOfWeekIndex}>
                                         <p>{dayIndex}</p>
                                     </div>
                                 )

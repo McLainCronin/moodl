@@ -7,7 +7,7 @@ import Logout from "@/components/Logout";
 
 
 const opensans = Open_Sans({ subsets: ["latin"] });
-const fugaz = Flamenco({ subsets: ["latin"], weight: ['400'] });
+const flamenco = Flamenco({ subsets: ["latin"], weight: ['400'] });
 
 export const metadata = {
   title: "Moodi",
@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const header = (
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4">
-      <h1 className={'text-lg sm:text-3xl textGradient ' + fugaz.className}>
+      <h1 className={'text-lg sm:text-3xl textGradient ' + flamenco.className}>
         <Link href='/'>
           Moodi
         </Link>
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
 
   const footer = (
     <footer className="p-4 sm:p-8 grid place-items-center">
-      <p className={'text-[#ef447d] ' + fugaz.className}>Moodi 🫶 2024</p>
+      <p className={'text-[#ef447d] ' + flamenco.className}>Moodi 🫶 2024</p>
     </footer>
   )
 

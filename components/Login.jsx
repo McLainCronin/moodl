@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Flamenco } from 'next/font/google'
 import Button from './Button'
-const fugaz = Flamenco({ subsets: ['latin'], weight: ['400'] })
+const flamenco = Flamenco({ subsets: ['latin'], weight: ['400'] })
 import { useAuth, signup, login } from '@/context/AuthContext'
 
 
@@ -42,7 +42,7 @@ export default function Login() {
 
   return (
     <div className='flex flex-col flex-1 justify-center items-center gap-4 md:min-w-[1000px]'>
-      <h3 className={'text-4xl sm:text-5xl md:text-6xl ' + fugaz.className}>
+      <h3 className={'text-4xl sm:text-5xl md:text-6xl ' + flamenco.className}>
         {isRegister ? 'Register' : 'Login In'}
       </h3>
 

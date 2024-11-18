@@ -8,7 +8,7 @@ import Login from './Login'
 import Loading from './Loading'
 import Calendar from './Calendar';
 
-const fugaz = Flamenco({ subsets: ["latin"], weight: ['400'] });
+const flamenco = Flamenco({ subsets: ["latin"], weight: ['400'] });
 
 export default function Dashboard() {
   const { currentUser, userDataObj, setUserDataObj, loading } = useAuth()
@@ -100,12 +100,12 @@ export default function Dashboard() {
             return (
               <div key={statusIndex} className='p-4 flex flex-col gap-1 sm:gap-2'>
                 <p className='font-medium capitalize text-sm sm:text-md truncate'>{status.replaceAll('_', ' ')}</p>
-                <p className={'text-base sm:text-lg ' + fugaz.className}>{statuses[status]}{status === 'num_days' ? ' 🔥' : ''}</p>
+                <p className={'text-base sm:text-lg ' + flamenco.className}>{statuses[status]}{status === 'num_days' ? ' 🔥' : ''}</p>
               </div>
             )
           })}
         </div>
-        <h4 className={'text-5xl sm:text-6xl md:text-7xl text-center ' + fugaz.className}>
+        <h4 className={'text-5xl sm:text-6xl md:text-7xl text-center ' + flamenco.className}>
           How do you <span className='textGradient'>Feel</span> today?
         </h4>
         <div className='flex items-stretch flex-wrap gap-4'>
@@ -116,7 +116,7 @@ export default function Dashboard() {
                 handleSetMood(currentMoodValue)
               }} className={'p-4 px-6 rounded-2xl sherbertShadow duration-200 bg-pink-100 hover:bg-pink-50 text-center flex flex-col items-center gap-2 flex-1 '} key={moodIndex}>
                 <p className='text-4xl sm:text-5xl md:text-6xl'>{moods[mood]}</p>
-                <p className={'text-[#ef447d] text-xs sm:text-sm md:text-base ' + fugaz.className}>{mood}</p>
+                <p className={'text-[#ef447d] text-xs sm:text-sm md:text-base ' + flamenco.className}>{mood}</p>
               </button>
             )
           })}

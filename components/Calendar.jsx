@@ -3,7 +3,7 @@ import { gradients, baseRating, demoData } from '@/utils/index'
 import React, { useState } from 'react'
 import { Flamenco } from "next/font/google";
 
-const fugaz = Flamenco({ subsets: ["latin"], weight: ['400'] });
+const flamenco = Flamenco({ subsets: ["latin"], weight: ['400'] });
 
 
 const months = { 'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr', 'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug', 'September': 'Sept', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec' }
@@ -48,7 +48,7 @@ export default function Calendar(props) {
                 <button onClick={() => {
                     handleIncrementMonth(-1)
                 }} className='ml-auto'><i className='fas fa-chevron-left text-[#ef447d] text-lg sm:text-xl duration-200 hover:opacity-60'></i></button>
-                <p className={'text-center col-span-3 capitalized whitespace-nowrap textGradient ' + fugaz.className}>
+                <p className={'text-center col-span-3 capitalized whitespace-nowrap textGradient ' + flamenco.className}>
                     {selectedMonth} {selectedYear}
                 </p>
                 <button onClick={() => {

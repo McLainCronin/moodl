@@ -41,7 +41,7 @@ export default function Login() {
   }
 
   return (
-    <div className='flex flex-col flex-1 justify-center items-center gap-4 '>
+    <div className='flex flex-col justify-center items-center gap-4 max-w-[400px] '>
       <h3 className={'text-4xl sm:text-5xl md:text-6xl ' + flamenco.className}>
         {isRegister ? 'Register' : 'Login In'}
       </h3>
@@ -50,11 +50,11 @@ export default function Login() {
 
       <input value={email} onChange={(e) => {
         setEmail(e.target.value)
-      }} className='w-full max-w-[400px] mx-auto px-3 duration-200 hover:border-[#ef447d] focus:border-[#ef447d] py-2 sm:py-3 border border-solid border-pink-300 rounded-full outline-none' placeholder='Email'/>
+      }} className='w-full px-3 duration-200 hover:border-[#ef447d] focus:border-[#ef447d] py-2 sm:py-3 border border-solid border-pink-300 rounded-full outline-none' placeholder='Email'/>
 
       <input value={password} onChange={(e) => {
         setPassword(e.target.value)
-      }} className='w-full max-w-[400px] mx-auto px-3 duration-200 hover:border-[#ef447d] focus:border-[#ef447d] py-2 sm:py-3 border border-solid border-pink-300 rounded-full outline-none' placeholder='Password' type='password'/>
+      }} className='w-full px-3 duration-200 hover:border-[#ef447d] focus:border-[#ef447d] py-2 sm:py-3 border border-solid border-pink-300 rounded-full outline-none' placeholder='Password' type='password'/>
 
       <div className='max-w-[400px] w-full mx-auto'>
         <Button clickHandler={handleSubmit} text={authenticating ? 'Submitting' : 'Submit'} full/>

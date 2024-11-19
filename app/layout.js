@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const header = (
-    <header className="p-4 sm:p-8 flex items-center justify-between gap-4">
+    <header className="max-w-[1000px] w-full mx-auto p-4 sm:p-8 flex items-center justify-between gap-4">
       <h1 className={'text-lg sm:text-3xl textGradient ' + flamenco.className}>
         <Link href='/'>
           Moodi
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
   )
 
   const footer = (
-    <footer className="p-4 sm:p-8 grid place-items-center">
+    <footer className="mx-auto p-4 sm:p-8 grid place-items-center">
       <p className={'text-[#ef447d] ' + flamenco.className}>Moodi 🫶 2024</p>
     </footer>
   )
@@ -36,14 +36,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head/>
       <AuthProvider>
-        <body className={ ' w-full text-sm sm:text-base min-h-screen flex flex-col text-slate-800 ' + opensans.className}>
-          <div className="max-w-[1000px] mx-auto">
+      <body className={'w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-800  ' + opensans.className}>
             {header}
             {children}
             {footer}
-          </div>
         </body>
       </AuthProvider>
     </html>
   );
 }
+
+

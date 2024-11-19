@@ -98,7 +98,7 @@ export default function Dashboard() {
         <div className='grid grid-cols-3 bg-pink-50 border-2 border-solid border-[#ff74a27a] text-[#ef447d] p-4 gap-4 rounded-lg'>
           {Object.keys(statuses).map((status, statusIndex) => {
             return (
-              <div key={statusIndex} className='p-4 flex flex-col gap-1 sm:gap-2'>
+              <div key={statusIndex} className=' p-4 flex flex-col gap-1 sm:gap-2'>
                 <p className='font-medium capitalize text-sm sm:text-md truncate'>{status.replaceAll('_', ' ')}</p>
                 <p className={'text-base sm:text-lg ' + flamenco.className}>{statuses[status]}{status === 'num_days' ? ' 🔥' : ''}</p>
               </div>

@@ -16,18 +16,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const header = (
-    <header className="w-full max-w-[45%] p-4 sm:p-8 flex items-center justify-between gap-4">
-      <h1 className={'text-lg sm:text-3xl textGradient ' + flamenco.className}>
-        <Link href='/'>
-          Moodi
-        </Link>
-      </h1>
-      <Logout />
+    <header className="p-4 sm:p-8 w-full">
+      <div className="max-w-screen-xl lg:max-w-screen-xl mx-auto flex items-center justify-between">
+        <h1 className={'text-lg sm:text-3xl textGradient ' + flamenco.className}>
+          <Link href='/'>
+            Moodi
+          </Link>
+        </h1>
+        <Logout />
+      </div>
     </header>
   )
 
   const footer = (
-    <footer className="w-full max-w-[10%] p-4 sm:p-8 flex items-center">
+    <footer className="w-full max-w-screen-xl lg:max-w-screen-xl p-4 sm:p-8 flex items-center justify-center mx-auto">
       <p className={'text-[#ef447d] ' + flamenco.className}>Moodi 🫶 2024</p>
     </footer>
   )
@@ -36,7 +38,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head/>
       <AuthProvider>
-      <body className={'max-w-[97.5%] self-center text-sm sm:text-base min-h-screen flex flex-col items-center text-slate-800  ' + opensans.className}>
+      <body className={'text-sm sm:text-base min-h-screen flex flex-col items-center text-slate-800  ' + opensans.className}>
             {header}
             {children}
             {footer}

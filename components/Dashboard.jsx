@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Flamenco } from "next/font/google";
+import { Flamenco, Open_Sans } from "next/font/google";
 import { average, doc, setDoc, sum } from 'firebase/firestore'
 import { db } from '@/firebase'
 import { useAuth } from '@/context/AuthContext'
@@ -9,6 +9,7 @@ import Loading from './Loading'
 import Calendar from './Calendar';
 
 const flamenco = Flamenco({ subsets: ["latin"], weight: ['400'] });
+const opensans = Open_Sans({ subsets: ["latin"] });
 
 export default function Dashboard() {
   const { currentUser, userDataObj, setUserDataObj, loading } = useAuth()
@@ -98,9 +99,9 @@ export default function Dashboard() {
         <div className='grid grid-cols-3 bg-pink-50 border-2 border-solid border-[#ff74a27a] text-[#ef447d] p-4 gap-4 rounded-lg'>
           {Object.keys(statuses).map((status, statusIndex) => {
             return (
-              <div key={statusIndex} className=' p-4 flex flex-col gap-1 sm:gap-2'>
+              <div key={statusIndex} className={'p-4 flex flex-col gap-1 sm:gap-2' + opensans.className}>
                 <p className='font-medium capitalize text-sm sm:text-md truncate'>{status.replaceAll('_', ' ')}</p>
-                <p className={'text-base sm:text-lg ' + flamenco.className}>{statuses[status]}{status === 'num_days' ? ' 🔥' : ''}</p>
+                <p className={'text-base sm:text-md ' + opensans.className}>{statuses[status]}{status === 'num_days' ? ' 🔥' : ''}</p>
               </div>
             )
           })}

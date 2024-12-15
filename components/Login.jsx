@@ -12,7 +12,7 @@ export default function Login() {
   const [isRegister, setIsRegister] = useState(false)
   const [authenticating, setAuthenticating] = useState(false)
   const { signup, login } = useAuth()
-  //create an error state which informs the user of the specific error (password length, email format, etc)
+ 
 
   async function handleSubmit() {
     if (!email || !password || password.length < 6) {
